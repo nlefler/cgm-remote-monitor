@@ -31,7 +31,7 @@
     "test-single": "env-cmd -f ./my.test.env mocha --exit tests/$TEST.test.js",
     "test-ci": "env-cmd -f ./ci.test.env nyc --reporter=lcov --reporter=text-summary mocha --exit tests/*.test.js",
     "env": "env",
-    "postinstall": "webpack --mode production --config webpack.config.js && npm run-script update-buster; cat /root/.npm/_logs/*",
+    "postinstall": "webpack --mode production --config webpack.config.js && npm run-script update-buster; cat /root/.npm/_logs/* || exit 0",
     "bundle": "webpack --mode production --config webpack.config.js && npm run-script update-buster",
     "bundle-dev": "webpack --mode development --config webpack.config.js && npm run-script update-buster",
     "bundle-analyzer": "webpack --mode development --config webpack.config.js --profile --json > stats.json && webpack-bundle-analyzer stats.json",
